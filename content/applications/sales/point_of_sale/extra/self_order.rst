@@ -249,3 +249,17 @@ displaying printed QR codes or installing a self-service kiosk.
 .. note::
    Once an order is placed, it is automatically sent to :doc:`the preparation screen <preparation>`
    and added to the list of POS orders.
+
+.. _pos/self_order/product-information-display:
+
+Product information display in self-ordering mode
+-------------------------------------------------
+
+To view product information in the self-ordering menu or product catalog, customers can click the
+:icon:`fa-info` (:guilabel:`info`) icon next to the product name.
+
+The :ref:`product description <pos/products/configuration>` is displayed, as well as the
+:ref:`product tag and tag description <pos/products/tags>`, if relevant.
+
+.. image:: self_order/product_information_display.png
+   :alt: Pizza Margherita information in the self-ordering menu.
