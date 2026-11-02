@@ -22,6 +22,10 @@ localization:
    * - :guilabel:`Japan - Accounting Reports`
      - `l10n_jp_reports`
      - Includes the accounting reports for Japan, such as the consumption tax returns.
+   * - :guilabel:`Japan - Zengin Payment`
+     - `l10n_jp_zengin`
+     - Enables the generation of Zengin-compliant files to send to your bank in order to push a set
+       of payments.
 
 Additionally, the following module can be manually :ref:`installed <general/install>`:
 
@@ -58,6 +62,8 @@ The Japanese localization package provides the following key features:
   returns
 - :ref:`Qualified invoices <localizations/japan/accounting/qualified-invoice>`: registration number
   printed on invoices and other documents
+- :ref:`Zengin <localizations/japan/accounting/zengin>`: bank statement import and creation of
+  payment instruction files
 - :doc:`../accounting/get_started/chart_of_accounts`: accounts used in the major accounting
   standards, based on the codes of the National Tax Agency
 - :doc:`Taxes <../accounting/taxes>`: pre-configured tax rates, including standard VAT, zero-rated,
@@ -233,3 +239,128 @@ for the date of the transaction on the purchase line.
    Taxes whose transition period has ended are not deactivated automatically. When a period ends, go
    to :menuselection:`Accounting --> Configuration --> Taxes` and deactivate the tax.
 
+.. _localizations/japan/accounting/zengin:
+
+Zengin
+------
+
+.. note::
+   Make sure to :ref:`install <general/install>` the :guilabel:`Japan - Zengin Payment` module
+   (`l10n_jp_zengin`) to import statements in the Zengin format as bank transactions and to create
+   bank transfer files in the Zengin format.
+
+The Zengin format is a standard file format for exchanging data with banks, defined by the Japanese
+Bankers Association. Companies use this format to import bank statements and to send files that
+consolidate multiple payments into a single bank transfer request.
+
+.. _localizations/japan/accounting/zengin/journal:
+
+Bank statement import
+~~~~~~~~~~~~~~~~~~~~~
+
+To import Zengin statement files, the bank journal that receives the transactions must be
+configured.
+
+#. Go to :menuselection:`Accounting --> Configuration --> Journals`, and open the :guilabel:`Bank`
+   journal to configure it or create a new one.
+#. Click the :icon:`east` :guilabel:`(arrow-right)` icon in the :guilabel:`Bank Account Number`
+   field to open and configure an existing bank account or create a new one.
+#. Fill in the fields below. If they are not displayed, make sure the address in the
+   :guilabel:`Bank Information` tab is set to :guilabel:`Japan`.
+
+   .. list-table::
+      :header-rows: 1
+
+      * - Field
+        - Value
+        - Limit and notes
+      * - :guilabel:`BIC/SWIFT`
+        - Financial institution code
+        - 4 digits
+      * - :guilabel:`Zengin Branch Code (Clearing Number)`
+        - Branch code
+        - 3-digit number
+      * - :guilabel:`Bank Name (Kana)`
+        - Bank name in half-width kana
+        - 15 characters maximum
+      * - :guilabel:`Branch Name (Kana)`
+        - Branch name in half-width kana
+        - 15 characters maximum
+      * - :guilabel:`Account Holder Name (Kana)`
+        - Account holder name in half-width kana
+        - 40 characters maximum
+      * - :guilabel:`Account Type`
+        - Account type
+        - A :guilabel:`Savings` account cannot be used as the source of a transfer file.
+      * - :guilabel:`Client Code`
+        - Client code
+        - 10-digit number. Required for your own bank account only.
+
+#. If disabled, click the :icon:`fa-toggle-off` :guilabel:`(toggle-off)` icon to enable
+   :guilabel:`Trust bank account`.
+#. Click :guilabel:`Save`.
+
+To import transactions from a Zengin file, drag and drop the file onto the configured bank journal,
+or click :guilabel:`Import file` and select the file.
+
+.. _localizations/japan/accounting/zengin/partner:
+
+Transfer files
+~~~~~~~~~~~~~~
+
+A transfer file requires the bank code, branch, account, and account holder name in kana of the
+recipient (contact). To register the bank account of a contact:
+
+#. In the :doc:`Contacts <../../essentials/contacts>` app, open the relevant contact, and go to the
+   :guilabel:`Invoicing` or :guilabel:`Accounting` tab.
+#. Click the :icon:`east` :guilabel:`(arrow-right)` icon in the :guilabel:`Bank accounts` field to
+   open and configure an existing bank account or create a new one.
+#. Fill in the fields below, and save. If they are not displayed, make sure the address in the
+   :guilabel:`Bank Information` tab is set to :guilabel:`Japan`.
+
+   .. list-table::
+      :header-rows: 1
+
+      * - Field
+        - Value
+        - Limit and notes
+      * - :guilabel:`Account Number`
+        - Account number
+        - 7 digits
+      * - :guilabel:`Trust bank account`
+        - Enable
+        -
+      * - :guilabel:`BIC/SWIFT`
+        - Financial institution code
+        - 4 digits. Used as the bank code in the transfer file.
+      * - :guilabel:`Zengin Branch Code (Clearing Number)`
+        - Branch code
+        - 3-digit number
+      * - :guilabel:`Bank Name (Kana)`
+        - Bank name in half-width kana
+        - 15 characters maximum
+      * - :guilabel:`Branch Name`
+        - Branch name
+        -
+      * - :guilabel:`Branch Name (Kana)`
+        - Branch name in half-width kana
+        - 15 characters maximum
+      * - :guilabel:`Account Holder Name (Kana)`
+        - Account holder name in half-width kana
+        - 30 characters maximum
+
+.. note::
+   Values that are too long are truncated to the maximum number of characters above when the file is
+   created. The kana input format (such as half-width kana) is not validated, so follow the
+   instructions of the bank.
+
+Once the bank accounts are configured, create the transfer file:
+
+#. Open the vendor bill to pay, and click :guilabel:`Pay`.
+#. In the :guilabel:`Journal` field, select the bank journal. In the :guilabel:`Payment Method`
+   field, select :guilabel:`Zengin`. In the :guilabel:`Recipient Account` field, select the vendor's
+   bank account and click :guilabel:`Create Payment`.
+#. Go to :menuselection:`Accounting --> Vendors --> Payments`, select the payments to include in the
+   batch, click :icon:`fa-cog` :guilabel:`Actions`, and select :guilabel:`Create batch payment`.
+#. Review the batch, and click :guilabel:`Validate`. The transfer file is displayed in the chatter,
+   on the right side of the batch payment.
