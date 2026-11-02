@@ -56,15 +56,51 @@ The Japanese localization package provides the following key features:
   and purchase taxes, including the deduction rates of the :ref:`transition period for non-qualified
   invoices <localizations/japan/accounting/qualified-invoice-transition>`, and consumption tax
   returns
+- :ref:`Qualified invoices <localizations/japan/accounting/qualified-invoice>`: registration number
+  printed on invoices and other documents
 - :doc:`../accounting/get_started/chart_of_accounts`: accounts used in the major accounting
   standards, based on the codes of the National Tax Agency
 - :doc:`Taxes <../accounting/taxes>`: pre-configured tax rates, including standard VAT, zero-rated,
   and exempt options
 
+.. _localizations/japan/company-and-contacts:
+
+Company and contacts
+====================
+
+To configure your company, open the Settings app, and in the :guilabel:`Companies` section, click
+:guilabel:`Update Info`.
+
+- :guilabel:`Name`
+- :guilabel:`Address`, including the :guilabel:`City`, :guilabel:`State`, :guilabel:`Zip Code`, and
+  :guilabel:`Country`
+- :guilabel:`Phone`
+- :guilabel:`Email`
+- :guilabel:`Tax ID`: The qualified invoice issuer ID (if any), which is `T` followed by 13 digits.
+  It is printed on invoices and other documents.
+
 .. _localizations/japan/accounting:
 
 Accounting
 ==========
+
+.. _localizations/japan/accounting/qualified-invoice:
+
+Qualified invoices
+------------------
+
+A qualified invoice (適格請求書) is an invoice that contains the information required by the Japanese
+qualified invoice system, including the issuer's registration number. Buyers can only deduct the
+full consumption tax paid on a purchase if the vendor's invoice is a qualified invoice. Only
+businesses registered with the National Tax Agency as qualified invoice issuers can issue them.
+
+If your company is a registered qualified invoice issuer, enter your :ref:`Tax ID
+<localizations/japan/company-and-contacts>`. The number is then printed
+on invoices and other documents, as required for qualified invoices.
+
+When an invoice is received from a vendor that is not a qualified invoice issuer, the deductible
+share of the tax depends on the transaction date. :ref:`Check which taxes to select
+<localizations/japan/accounting/qualified-invoice-transition>`.
 
 .. _localizations/japan/accounting/tax-report:
 
