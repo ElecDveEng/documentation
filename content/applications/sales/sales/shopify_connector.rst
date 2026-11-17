@@ -14,7 +14,7 @@ Odoo.
    .. card:: Setup
       :target: shopify_connector/setup
 
-      Connect your Shopify store to Odoo.
+      Connect a Shopify store to Odoo.
 
    .. card:: Order management
       :target: shopify_connector/manage

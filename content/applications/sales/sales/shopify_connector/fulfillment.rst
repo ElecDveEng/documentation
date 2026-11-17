@@ -103,7 +103,7 @@ created for the same order, including:
 - Partial quantity fulfillment across shipments.
 
 All fulfillment details, including location, carrier, tracking numbers, and fulfilled quantities,
-are synced accurately into Odoo, with corresponding stock moves and delivery updates.
+are synced accurately with Odoo, with corresponding stock moves and delivery updates.
 
 .. _shopify/fulfillment/shipping:
 

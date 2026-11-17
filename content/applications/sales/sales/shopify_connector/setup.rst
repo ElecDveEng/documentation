@@ -99,7 +99,7 @@ page.
 Select an authentication method
 -------------------------------
 
-If following the Public app setup process, skip this step since the :guilabel:`Public app` option in
+If following the Public app setup process, skip this step because the :guilabel:`Public app` option in
 the *Credentials* tab is pre-selected. Continue to the *Configuration* tab to :ref:`configure
 administrative settings <shopify/setup/administrative-settings>`.
 

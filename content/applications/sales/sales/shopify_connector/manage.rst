@@ -187,7 +187,7 @@ The :guilabel:`Created/Updated after` field displays the timestamp for the last 
 data into the **Sales** app:
 
 - :ref:`Products <shopify/manage/sync-existing-products>`
-- :ref:`Customer <shopify/manage/customer-matching>`
+- :ref:`Customers <shopify/manage/customer-matching>`
 - :ref:`Pricing and taxes <shopify/manage/price-tax-mapping>`
 - :ref:`Inventory <shopify/manage/inventory-sync>`
 
@@ -325,7 +325,7 @@ When :guilabel:`Update Inventory` is enabled, Odoo pushes stock to Shopify after
    action.
 
 .. tip::
-   Make sure the inventory levels on both platforms are in sync first, to avoid discrepancies during
+   Make sure the inventory levels on both platforms are in sync first to avoid discrepancies during
    synchronization.
 
 To push stock manually, go to :menuselection:`Sales app --> Configuration --> Shopify: Accounts` to
@@ -395,7 +395,7 @@ Manual operations summary
 The following manual operations are available under the :guilabel:`Operations` tab:
 
 - :icon:`fa-refresh` :guilabel:`Fetch Products`
-- :icon:`fa-refresh` :guilabel:`Fetch Orders` between any date range
+- :icon:`fa-refresh` :guilabel:`Fetch Orders` within any date range
 - :icon:`fa-refresh` :guilabel:`Push Inventory`
 - :icon:`fa-refresh` :guilabel:`Fetch Locations`
 - :icon:`fa-refresh` :guilabel:`Fetch Inventory`
