@@ -41,11 +41,11 @@ Click the *Content* tab, and highlight some text so the toolbar is visible. Clic
 (Code view)` button and the text changes to code.
 
 Search the code for `signature` to find the two instances of the code `object.user_id.signature`.
-Replace both `object.user_id.signature` instances with `User.signature`.
+Replace both `object.user_id.signature` instances with `user.signature`.
 
 .. image:: custom_signatures/code.png
-   :alt: The two 'object.user_id.signature' fields replaced with 'User.signature'.
-
+   :alt: The two 'object.user_id.signature' fields replaced with 'user.signature'.
+!! the image shows User.signature but should be user.signature !!
 .. tip::
    If a user has not set up their email signature, instead of having the default `Mitchell Admin`
    populate the signature, the company name can be displayed instead.
